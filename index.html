@@ -3,67 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REBOOT SYSTEM — Максим Жуков · Біо-Менеджмент тіла</title>
-<meta name="description" content="Системний підхід до тіла: біохімія, гормони, звички. Біо-Аудит, авторські протоколи, онлайн-ведення. Максим Жуков — настанник із трансформації.">
-
-<!-- ─── Canonical ─── -->
-<link rel="canonical" href="https://reboot-system.com/">
-
-<!-- ─── Open Graph (Facebook / Telegram preview) ─── -->
-<meta property="og:type"        content="website">
-<meta property="og:url"         content="https://reboot-system.com/">
-<meta property="og:site_name"   content="REBOOT SYSTEM">
-<meta property="og:title"       content="REBOOT SYSTEM — Максим Жуков · Біо-Менеджмент тіла">
-<meta property="og:description" content="Не черговий фітнес-тренер. Системний підхід до тіла, який змінює біохімію, гормони та звички — назавжди. Пройди Біо-Аудит безкоштовно.">
-<meta property="og:image"       content="https://reboot-system.com/images/og-cover.jpg">
-<meta property="og:image:width"  content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale"      content="uk_UA">
-
-<!-- ─── Twitter Card ─── -->
-<meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="REBOOT SYSTEM — Максим Жуков · Біо-Менеджмент">
-<meta name="twitter:description" content="Системний підхід до тіла: біохімія, гормони, звички. Пройди Біо-Аудит безкоштовно.">
-<meta name="twitter:image"       content="https://reboot-system.com/images/og-cover.jpg">
-
-<!-- ─── SEO ─── -->
-<meta name="author"  content="Максим Жуков">
-<meta name="robots"  content="index, follow">
-<meta name="theme-color" content="#F5A623">
-
-<!-- ─── Security ─── -->
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options"        content="SAMEORIGIN">
-<meta http-equiv="Referrer-Policy"        content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy"     content="camera=(), microphone=(), geolocation=()">
-
-<!-- ─── Google Analytics (GA4) — ЗАМІНИ G-XXXXXXXXXX НА СВІЙ ID ─── -->
-<!-- КРОК: зареєструйся на analytics.google.com → отримай Measurement ID -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments)}
-  gtag('js',new Date());
-  gtag('config','G-XXXXXXXXXX');
-</script>
--->
-
-<!-- ─── Meta Pixel (Facebook/Instagram) — ЗАМІНИ 000000000000000 НА СВІЙ ID ─── -->
-<!-- КРОК: business.facebook.com → Events Manager → Pixels → Get Code -->
-<!--
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','000000000000000');
-fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=000000000000000&ev=PageView&noscript=1"/></noscript>
--->
+<title>REBOOT SYSTEM — Максим Жуков · Біо-Менеджмент</title>
+<meta name="description" content="Не черговий фітнес-тренер. Системний підхід до тіла, який змінює біохімію, гормони та звички — назавжди.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -3197,18 +3138,8 @@ function pickSocial(net) {
 }
 
 /* ═══ TELEGRAM ═══ */
-/*
-  БЕЗПЕКА: BOT_TOKEN прибрано з фронтенду.
-  Форма тепер надсилає запит на бекенд-ендпоінт /api/contact
-  (Cloudflare Worker або Vercel Function — інструкція в README.md)
-
-  Якщо ще не налаштував бекенд — розкоментуй рядки нижче для
-  тимчасового прямого відправлення (тільки для тестування!):
-
-  var BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
-  var CHAT_ID   = 'YOUR_CHAT_ID_HERE';
-*/
-var BACKEND_URL = '/api/contact'; /* Cloudflare Worker / Vercel Function */
+var BOT_TOKEN = '8752429446:AAGS4VIMNAXyirY0oa1k190wsHxR_UxEcNE';
+var CHAT_ID   = '5896526877';
 
 function submitForm() {
   var name     = document.getElementById('fn').value.trim();
@@ -3270,46 +3201,11 @@ function submitForm() {
     + 'Ситуація:\n' + desc + '\n\n'
     + 'Час: ' + now;
 
-  /* Відправляємо на бекенд — токен схований на сервері */
-  fetch(BACKEND_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: name + ' ' + lastname,
-      age: age, phone: phone,
-      social: chosenSocial, contact: contact,
-      goal: goal, plan: plan, desc: desc
-    })
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(resp){
-    btn.disabled    = false;
-    btn.textContent = 'Записатись';
-    if(resp.ok){
-      document.getElementById('fform').style.display = 'none';
-      document.getElementById('fsuc').style.display  = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      /* GA4 / Meta Pixel конверсія */
-      if(typeof gtag==='function') gtag('event','generate_lead',{currency:'USD',value:0});
-      if(typeof fbq==='function')  fbq('track','Lead');
-    } else {
-      errEl.innerHTML = 'Помилка: ' + (resp.error || 'спробуй ще раз');
-      errEl.style.display = 'block';
-    }
-  })
-  .catch(function(e){
-    btn.disabled    = false;
-    btn.textContent = 'Записатись';
-    errEl.innerHTML = 'Помилка мережі. Перевір з'єднання і спробуй ще раз.';
-    errEl.style.display = 'block';
-  });
-
-  /* ── FALLBACK: якщо бекенд не налаштований ── */
-  /* Розкоментуй блок нижче і закоментуй fetch() вище для прямого відправлення */
-  /*
+  /* URL-encoded GET запит — найпростіший і найнадійніший спосіб */
   var url = 'https://api.telegram.org/bot' + BOT_TOKEN
     + '/sendMessage?chat_id=' + CHAT_ID
     + '&text=' + encodeURIComponent(text);
+
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
   xhr.onreadystatechange = function() {
@@ -3327,11 +3223,11 @@ function submitForm() {
         errEl.style.display = 'block';
       }
     } catch(e) {
-      errEl.innerHTML = 'Помилка мережі. Статус: ' + xhr.status;
+      errEl.innerHTML = 'Помилка мережі. Статус: ' + xhr.status + '. Спробуй ще раз.';
       errEl.style.display = 'block';
     }
   };
-  xhr.onerror = function(){
+  xhr.onerror = function() {
     btn.disabled    = false;
     btn.textContent = 'Записатись';
     errEl.innerHTML = 'Немає зв\'язку. Перевір інтернет і спробуй знову.';
