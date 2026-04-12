@@ -1,0 +1,12 @@
+# Cloudflare Wrangler
+.wrangler/
+node_modules/
+.dev.vars
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp
